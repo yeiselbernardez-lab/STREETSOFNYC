@@ -1,0 +1,162 @@
+App Overview
+
+Build a mobile-first native web application using React Native with Expo that visually simulates people walking across a New York City street when buttons are clicked.
+
+The app represents “The Streets of New York”, featuring:
+
+A centered layout
+
+A light grey background
+
+A NYC street scene with skyscrapers, small storefronts, and a pedestrian crosswalk
+
+Animated characters that walk from the left side of the screen to the right when triggered by user interaction
+
+The app must work on mobile and web, and be deployable to Vercel using Expo Web.
+
+Requirements
+Tech Stack
+
+Expo (latest version)
+
+React Native (functional components + hooks)
+
+Expo Web compatibility
+
+React Native Animated or Reanimated for walking animations
+
+No backend required
+
+Layout
+
+Light grey background
+
+Centered vertical layout
+
+Large, easy-to-read title button centered near the top that reads:
+“THE STREETS OF NEW YORK”
+
+NYC street scene below the title:
+
+Crosswalk street spanning full width
+
+Pedestrian walking / stop signs
+
+NYC skyscrapers in the background
+
+Small storefronts (bodega, coffee shop, deli, etc.)
+
+Five character buttons underneath the street
+
+Features
+Character System
+
+There are 5 unique character types:
+
+Black woman with afro hair
+
+White woman with blonde hair
+
+Man with afro and big beard
+
+Little light-skin girl with curly hair
+
+Old man with a very long beard and a cane
+
+Each character:
+
+Starts off-screen on the left
+
+Walks smoothly across the street to the right
+
+Uses horizontal translation animation
+
+Has slight vertical bobbing for realism
+
+Button Behavior
+
+Each character has its own button
+
+Every button click:
+
+Spawns a new instance of that character
+
+Triggers a walking animation across the screen
+
+Clicking the same button multiple times:
+
+Continues to add additional walkers
+
+Characters do not overwrite each other
+
+Multiple characters can walk simultaneously
+
+State Management
+
+Track click counts per character type
+
+Use unique IDs for each animated character instance
+
+Remove characters from state after they exit the screen
+
+API (if needed)
+
+No external APIs required
+
+All animations and logic handled locally
+
+Optional: use local SVGs or placeholder illustrations for characters and buildings
+
+Styling
+
+Use StyleSheet.create
+
+Light grey background (#f2f2f2)
+
+Large, high-contrast buttons
+
+Clean, playful, NYC-inspired aesthetic
+
+Street should be visually large enough for walking animations
+
+Fonts should be accessible and mobile-friendly
+
+Characters may be implemented as:
+
+SVGs
+
+PNGs
+
+Or styled React Native Views
+
+Deployment Readiness
+
+Must be compatible with Expo Web
+
+Avoid native-only APIs that break on web
+
+Ready for deployment to Vercel
+
+Include comments or notes explaining:
+
+How to run locally with Expo
+
+How to build for web
+
+How to deploy to Vercel
+
+Output
+
+Deliver:
+
+Fully functional Expo + React Native app
+
+Clean, readable, well-commented code
+
+Organized component structure (e.g. StreetScene, Character, CharacterButton)
+
+Smooth animations
+
+Responsive behavior on mobile and web
+
+Placeholder assets where needed
