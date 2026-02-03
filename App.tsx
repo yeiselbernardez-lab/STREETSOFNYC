@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { Pressable, SafeAreaView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Platform, Pressable, SafeAreaView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { CharacterButtonRow } from './src/components/CharacterButtonRow';
 import { StreetScene } from './src/components/StreetScene';
 import { Walker, WalkerInstance } from './src/components/Walker';
@@ -11,6 +11,28 @@ export default function App() {
 
   const [stageWidth, setStageWidth] = useState<number>(Math.min(640, windowWidth));
   const [walkers, setWalkers] = useState<WalkerInstance[]>([]);
+
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined') {
+      return;
+    }
+
+    const scriptId = 'effectivegatecpm-ad-unit';
+    if (document.getElementById(scriptId)) {
+      return;
+    }
+
+    // Inject the ad unit script only on web builds.
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = 'https://pl28642362.effectivegatecpm.com/a5/75/af/a575af2a70fb4d8e9cfb15941a9e8298.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   // Track click counts per character type.
   const [counts, setCounts] = useState<Record<CharacterType, number>>(() => {
