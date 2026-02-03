@@ -18,19 +18,41 @@ export default function App() {
     }
 
     const scriptId = 'effectivegatecpm-ad-unit';
+    const containerId = 'effectivegatecpm-ad-container';
     if (document.getElementById(scriptId)) {
       return;
     }
 
     // Inject the ad unit script only on web builds.
+    let container = document.getElementById(containerId);
+    const createdContainer = !container;
+    if (!container) {
+      container = document.createElement('div');
+      container.id = containerId;
+      container.style.border = '2px solid red';
+      container.style.padding = '8px';
+      container.style.margin = '12px auto';
+      container.style.maxWidth = '640px';
+      container.style.width = '100%';
+      container.style.boxSizing = 'border-box';
+      container.style.display = 'flex';
+      container.style.justifyContent = 'center';
+      container.style.alignItems = 'center';
+      container.style.minHeight = '60px';
+      document.body.appendChild(container);
+    }
+
     const script = document.createElement('script');
     script.id = scriptId;
-    script.src = 'https://pl28642362.effectivegatecpm.com/a5/75/af/a575af2a70fb4d8e9cfb15941a9e8298.js';
+    script.src = 'https://pl28642365.effectivegatecpm.com/37/3a/5d/373a5d49bc66b18938917792e235bf3e.js';
     script.async = true;
-    document.body.appendChild(script);
+    container.appendChild(script);
 
     return () => {
       script.remove();
+      if (createdContainer) {
+        container?.remove();
+      }
     };
   }, []);
 
